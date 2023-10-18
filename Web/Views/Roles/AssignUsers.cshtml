@@ -1,0 +1,16 @@
+@model DAL.ViewModels.AssignUsersToRoleViewModel
+
+<h2>Assign Users to Role</h2>
+
+<form asp-action="AssignUsers" asp-controller="Roles">
+    <div class="form-group">
+        <label asp-for="RoleName"></label>
+        <input asp-for="RoleName" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+        <label asp-for="Users"></label>
+        <select asp-for="SelectedUsers" asp-items="Model.Users" multiple class="form-control"></select>
+        <span asp-validation-for="SelectedUsers" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Assign Users</button>
+</form>
