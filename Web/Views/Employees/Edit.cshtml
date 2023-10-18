@@ -1,0 +1,30 @@
+@model DAL.Models.Employee
+
+<h1>Edit Employee</h1>
+
+<form asp-controller="Employees" asp-action="Edit" asp-route-id="@Model.EmployeeId" method="post">
+    <input asp-for="EmployeeId" type="hidden" />
+    <div class="form-group">
+        <label for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Surname">Surname:</label>
+        <input asp-for="Surname" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Patronymic">Patronymic:</label>
+        <input asp-for="Patronymic" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="ProjectId">Assigned Project:</label>
+        <select asp-for="ProjectId" asp-items="ViewBag.Projects" class="form-control">
+            <option value="">-- Not Assigned --</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>

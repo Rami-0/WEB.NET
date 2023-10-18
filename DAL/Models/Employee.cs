@@ -12,7 +12,7 @@ public class Employee
     public int ProjectId { get; set; }
 
     // Define a navigation property to link to the associated project.
-    public Project Project { get; set; }
+    public Project Project { get; set; } 
 
     // Add any other properties you need for employees.
 }

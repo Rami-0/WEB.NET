@@ -1,0 +1,33 @@
+@model List<DAL.Models.Employee>
+
+<h1>Employees</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Patronymic</th>
+        <th>Email</th>
+        <th>Assigned Project</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td>@employee.Name</td>
+            <td>@employee.Surname</td>
+            <td>@employee.Patronymic</td>
+            <td>@employee.Email</td>
+            <td>@employee.Project.Name</td>
+            <td>
+                <a asp-controller="Employees" asp-action="Edit" asp-route-id="@employee.EmployeeId">Edit</a> |
+                <a asp-controller="Employees" asp-action="Details" asp-route-id="@employee.EmployeeId">Details</a> |
+                <a asp-controller="Employees" asp-action="Delete" asp-route-id="@employee.EmployeeId">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

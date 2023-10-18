@@ -12,6 +12,7 @@ public class Project
 
     // Define a navigation property for employees assigned to this project.
     public List<Employee> Employees { get; set; }
+    
 
     // Add any other properties you need for projects.
 }

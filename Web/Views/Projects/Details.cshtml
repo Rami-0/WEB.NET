@@ -1,0 +1,35 @@
+@using DAL.Models;
+@model Project 
+
+<h1>Project Details</h1>
+
+<div>
+    <dl>
+        <dt>Name:</dt>
+        <dd>@Model.Name</dd>
+    </dl>
+    <dl>
+        <dt>Customer Company:</dt>
+        <dd>@Model.CustomerCompany</dd>
+    </dl>
+    <dl>
+        <dt>Performing Company:</dt>
+        <dd>@Model.PerformingCompany</dd>
+    </dl>
+    <dl>
+        <dt>Start Date:</dt>
+        <dd>@Model.StartDate.ToShortDateString()</dd>
+    </dl>
+    <dl>
+        <dt>End Date:</dt>
+        <dd>@Model.EndDate.ToShortDateString()</dd>
+    </dl>
+    <dl>
+        <dt>Priority:</dt>
+        <dd>@Model.Priority</dd>
+    </dl>
+</div>
+
+<p>
+    <a asp-controller="Projects" asp-action="Index">Back to Projects</a>
+</p>

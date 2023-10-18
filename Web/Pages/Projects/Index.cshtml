@@ -1,0 +1,60 @@
+@model List<DAL.Models.Project>
+
+<h1>Projects</h1>
+
+@using (Html.BeginForm("Index", "Projects", FormMethod.Get))
+{
+    <div class="form-group">
+        <label>Start Date:</label>
+        <input type="date" name="startDate" value="@ViewData["StartDate"]"/>
+        <label>End Date:</label>
+        <input type="date" name="endDate" value="@ViewData["EndDate"]"/>
+        <label>Priority:</label>
+        <input type="number" name="priority" value="@ViewData["Priority"]"/>
+        <input type="submit" value="Apply Filters" class="btn btn-primary"/>
+    </div>
+}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParam"]">Name</a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["CustomerSortParam"]">Customer Company</a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["StartDateSortParam"]">Start Date</a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["EndDateSortParam"]">End Date</a>
+        </th>
+        <th>
+            <a asp-action="Index" asp-route-sortOrder="@ViewData["PrioritySortParam"]">Priority</a>
+        </th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var project in Model)
+    {
+        <tr>
+            <td>@project.Name</td>
+            <td>@project.CustomerCompany</td>
+            <td>@project.StartDate.ToShortDateString()</td>
+            <td>@project.EndDate.ToShortDateString()</td>
+            <td>@project.Priority</td>
+            <td>
+                <a asp-controller="Projects" asp-action="Edit" asp-route-id="@project.ProjectId">Edit</a> |
+                <a asp-controller="Projects" asp-action="Details" asp-route-id="@project.ProjectId">Details</a> |
+                <a asp-controller="Projects" asp-action="Delete" asp-route-id="@project.ProjectId">Delete</a>
+
+            </td>
+            <td>
+                <a asp-controller="Projects" asp-action="Details" asp-route-id="@project.ProjectId">Details</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
